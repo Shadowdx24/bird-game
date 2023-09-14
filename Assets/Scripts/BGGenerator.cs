@@ -18,7 +18,7 @@ public class BGGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("genpoint = > " + genpoint.transform.position);
+        //Debug.Log("genpoint = > " + genpoint.transform.position);
         if (genpoint.position.x > transform.position.x)
         {
             transform.position = new Vector2(transform.position.x + distance, transform.position.y);
