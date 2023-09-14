@@ -29,6 +29,7 @@ public class Bird : MonoBehaviour
         if (collision.gameObject.CompareTag("wall"))
         {
             Debug.Log("You lose");
+            lose();
         }
     }
     private void lose()
