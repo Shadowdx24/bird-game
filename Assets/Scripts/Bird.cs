@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,9 @@ public class Bird : MonoBehaviour
     [Range(0,10) ,SerializeField] float speed = 5f, jumpspeed = 5f;
     [SerializeField] Animator animator;
     [SerializeField] GameObject losescene;
+    [SerializeField] GameObject pausescene;
+    private int score;
+    [SerializeField] private TextMeshProUGUI scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +36,17 @@ public class Bird : MonoBehaviour
             lose();
         }
     }
+
+    public void pause()
+    {
+        pausescene.SetActive(true);
+        scoreText.text = "Score: " + score;
+        Time.timeScale = 0f;
+    }
     private void lose()
     {
         losescene.SetActive(true);
+        scoreText.text = "Score: " + score;
         Time.timeScale = 0f;
     }
     public void Exit()
@@ -48,5 +60,24 @@ public class Bird : MonoBehaviour
         Debug.Log("Star Game");
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
+        score = 0;
+    }
+
+    public void Resume()
+    {
+        //Application.Quit();
+        Debug.Log("Resume");
+        pausescene.SetActive(false);
+        scoreText.text = "Score: " + score;
+        Time.timeScale = 1f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            score = score + 1;
+
+        }   
     }
 }
