@@ -17,7 +17,7 @@ public class pipeGenerator : MonoBehaviour
     void Update()
     {
 
-        InvokeRepeating("PipeGenerator", 0f,20f);
+        InvokeRepeating("PipeGenerator", 0f,60f);
     }
     private void PipeGenerator()
     {
