@@ -8,7 +8,7 @@ public class BGGenerator : MonoBehaviour
     public GameObject bgPrefab;
     public Transform genpoint;
     float distance = 17.4f;
-    //[SerializeField] private List<GameObject> allBgPrefab;
+    [SerializeField] private Transform BgContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class BGGenerator : MonoBehaviour
         if (genpoint.position.x > transform.position.x)
         {
             transform.position = new Vector2(transform.position.x + distance, transform.position.y);
-             Instantiate(bgPrefab, transform.position, Quaternion.identity);
+             Instantiate(bgPrefab, transform.position, Quaternion.identity,BgContainer);
             
             //for (int i = 0; i < allBgPrefab.Count; i++)
             //{

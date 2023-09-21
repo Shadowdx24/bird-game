@@ -5,6 +5,7 @@ using UnityEngine;
 public class pipeGenerator : MonoBehaviour
 {
     [SerializeField] GameObject pipePerfab;
+    [SerializeField] private Transform pipeContainer;
     
     //private float distance =4f;
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class pipeGenerator : MonoBehaviour
         float ranX = Random.Range(5f, 20f);
         float ranY = Random.Range(-4.2f, 2.74f);
         transform.position = new Vector3(transform.position.x + ranX, ranY,-10f);
-        Instantiate(pipePerfab, transform.position, Quaternion.identity);
+        Instantiate(pipePerfab, transform.position, Quaternion.identity, pipeContainer);
     }
 
 }
