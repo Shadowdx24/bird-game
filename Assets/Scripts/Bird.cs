@@ -51,7 +51,7 @@ public class Bird : MonoBehaviour
     }
     public void Exit()
     {
-        //Application.Quit();
+        Application.Quit();
         Debug.Log("Exit");
     }
 
