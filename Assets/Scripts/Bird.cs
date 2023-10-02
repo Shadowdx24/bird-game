@@ -65,7 +65,6 @@ public class Bird : MonoBehaviour
 
     public void Resume()
     {
-        //Application.Quit();
         Debug.Log("Resume");
         pausescene.SetActive(false);
         scoreText.text = "Score: " + score;
